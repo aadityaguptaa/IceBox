@@ -1,12 +1,14 @@
 package com.adityagupta.icebox.presentation.homescreen
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.format.DateFormat.is24HourFormat
-import com.adityagupta.icebox.R
+import androidx.appcompat.app.AppCompatActivity
 import com.adityagupta.icebox.databinding.ActivityAddSubjectBinding
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
 class AddSubjectActivity : AppCompatActivity() {
 
@@ -21,7 +23,34 @@ class AddSubjectActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setStartEndTimePicker()
+        setDatePicker()
 
+    }
+
+    private fun setDatePicker() {
+        val picker =
+            MaterialDatePicker.Builder.datePicker()
+                .setTitleText("Select date")
+                .build()
+
+        binding.addSubjectSelectDateButton.setOnClickListener {
+            picker.show(supportFragmentManager, "date")
+            picker.addOnPositiveButtonClickListener {
+                val dateString: String =
+                    SimpleDateFormat("dd/MM/yyyy").format(Date(it))
+
+                binding.addSubjectSelectDateTextView.text = dateString
+            }
+            picker.addOnNegativeButtonClickListener {
+                // Respond to negative button click.
+            }
+            picker.addOnCancelListener {
+                // Respond to cancel button click.
+            }
+            picker.addOnDismissListener {
+                // Respond to dismiss events.
+            }
+        }
     }
 
     private fun setStartEndTimePicker() {

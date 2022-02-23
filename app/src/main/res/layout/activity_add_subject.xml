@@ -118,13 +118,22 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/addSubjectStartTimeEditText" />
 
+        <TextView
+            android:id="@+id/textView4"
+            style="@style/start_end_time_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start Date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addSubjectSelectEndTImeButton" />
+
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/chipGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_main_margin"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addSubjectSelectEndTImeButton">
+            app:layout_constraintTop_toBottomOf="@+id/addSubjectSelectDateButton">
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/mondayChip"
@@ -170,5 +179,45 @@
             <!-- Chips can be declared here, or added dynamically. -->
 
         </com.google.android.material.chip.ChipGroup>
+
+        <com.google.android.material.button.MaterialButton
+
+            android:id="@+id/addSubjectSelectDateButton"
+            style="@style/time_select_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_main_margin"
+            android:layout_marginTop="@dimen/activity_main_margin"
+            android:layout_marginRight="@dimen/margin_small"
+            android:text="SELECT"
+            app:icon="@drawable/ic_baseline_calendar_today_24"
+            app:layout_constraintEnd_toStartOf="@+id/addSubjectSelectDateTextView"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <TextView
+            android:id="@+id/addSubjectSelectDateTextView"
+            style="@style/start_end_time_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_small"
+            app:layout_constraintBottom_toBottomOf="@+id/addSubjectSelectDateButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/addSubjectSelectDateButton"
+            app:layout_constraintTop_toTopOf="@+id/addSubjectSelectDateButton" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button4"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_main_margin"
+            android:fontFamily="@font/open_sans"
+            android:text="@string/save"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/chipGroup"
+            app:layout_constraintTop_toBottomOf="@+id/chipGroup" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
