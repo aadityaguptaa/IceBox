@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IceBox">
         <activity
+            android:name=".presentation.homescreen.AddSubjectActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.homescreen.HomeScreenActivity"
             android:exported="false" />
         <activity
