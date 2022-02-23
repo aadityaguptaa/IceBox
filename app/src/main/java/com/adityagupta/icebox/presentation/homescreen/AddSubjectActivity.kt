@@ -10,7 +10,9 @@ import com.google.android.material.timepicker.TimeFormat
 
 class AddSubjectActivity : AppCompatActivity() {
 
-    lateinit var timePicker: MaterialTimePicker
+    lateinit var startTimePicker: MaterialTimePicker
+    lateinit var endTimePicker: MaterialTimePicker
+
     lateinit var binding: ActivityAddSubjectBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,10 +20,16 @@ class AddSubjectActivity : AppCompatActivity() {
         binding = ActivityAddSubjectBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setStartEndTimePicker()
+
+    }
+
+    private fun setStartEndTimePicker() {
+
         val isSystem24Hour = is24HourFormat(this)
         val clockFormat = if (isSystem24Hour) TimeFormat.CLOCK_24H else TimeFormat.CLOCK_12H
 
-        timePicker =
+        startTimePicker =
             MaterialTimePicker.Builder()
                 .setTimeFormat(clockFormat)
                 .setHour(12)
@@ -29,15 +37,44 @@ class AddSubjectActivity : AppCompatActivity() {
                 .setTitleText("Start Time")
                 .build()
 
+        endTimePicker =
+            MaterialTimePicker.Builder()
+                .setTimeFormat(clockFormat)
+
+                .setTitleText("Start Time")
+                .build()
+
         binding.addSubjectSelectStartTimeButton.setOnClickListener {
-            timePicker.show(supportFragmentManager, "start_time")
+            startTimePicker.show(supportFragmentManager, "start_time")
+            timeSelectedListener(startTimePicker, "start");
         }
 
         binding.addSubjectSelectEndTImeButton.setOnClickListener {
-            timePicker.show(supportFragmentManager, "end_time")
+            endTimePicker.show(supportFragmentManager, "end_time")
+            timeSelectedListener(endTimePicker, "end");
         }
-
-
-
     }
+
+    private fun timeSelectedListener(picker: MaterialTimePicker, tag: String) {
+
+        picker.addOnPositiveButtonClickListener {
+            if(tag == "start"){
+                binding.addSubjectStartTimeEditText.editText?.setText("${picker.hour}:${picker.minute}")
+            }else{
+                binding.addSubjectEndTimeEditText.editText?.setText("${picker.hour}:${picker.minute}")
+            }
+            // call back code
+        }
+        picker.addOnNegativeButtonClickListener {
+            // call back code
+        }
+        picker.addOnCancelListener {
+            // call back code
+        }
+        picker.addOnDismissListener {
+            // call back code
+        }
+    }
+
+
 }
