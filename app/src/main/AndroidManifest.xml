@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.adityagupta.icebox">
-
     <!-- PERMISSIONS -->
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -14,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IceBox">
         <activity
+            android:name=".presentation.homescreen.AddSubjectActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.homescreen.HomeScreenActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -22,6 +27,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

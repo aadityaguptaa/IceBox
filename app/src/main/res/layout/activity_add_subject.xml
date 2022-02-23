@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.homescreen.AddSubjectActivity">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outlinedTextField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_main_margin"
+            android:hint="@string/subject_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:startIconDrawable="@drawable/ic_baseline_drive_file_rename_outline_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/start_end_time_style"
+            android:layout_margin="@dimen/activity_main_margin"
+            android:text="@string/start_time"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/outlinedTextField" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/addSubjectStartTimeEditText"
+            style="@style/text_field_style"
+            android:hint="@string/sample_time"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/addSubjectSelectStartTimeButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addSubjectSelectStartTimeButton"
+            style="@style/time_select_button"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_marginTop="@dimen/activity_main_margin"
+            android:layout_marginRight="@dimen/activity_main_margin"
+            android:layout_marginBottom="@dimen/activity_main_margin"
+            android:text="SELECT"
+            app:icon="@drawable/ic_baseline_access_time_24"
+            app:layout_constraintBottom_toBottomOf="@+id/addSubjectStartTimeEditText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/addSubjectStartTimeEditText"
+            app:layout_constraintTop_toTopOf="@+id/addSubjectStartTimeEditText" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/addSubjectEndTimeEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_marginTop="@dimen/activity_main_margin"
+            android:layout_marginRight="@dimen/activity_main_margin"
+            android:hint="@string/sample_time"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/addSubjectSelectEndTImeButton"
+            app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+
+            android:id="@+id/addSubjectSelectEndTImeButton"
+            style="@style/time_select_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_main_margin"
+            android:layout_marginTop="@dimen/activity_main_margin"
+            android:layout_marginRight="@dimen/margin_small"
+            android:layout_marginBottom="@dimen/activity_main_margin"
+            android:text="SELECT"
+            app:icon="@drawable/ic_baseline_access_time_24"
+            app:layout_constraintBottom_toBottomOf="@+id/addSubjectEndTimeEditText"
+            app:layout_constraintEnd_toStartOf="@+id/addSubjectEndTimeEditText"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/addSubjectEndTimeEditText" />
+
+        <TextView
+            android:id="@+id/textView3"
+            style="@style/start_end_time_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/end_time"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addSubjectStartTimeEditText" />
+
+        <TextView
+            android:id="@+id/textView4"
+            style="@style/start_end_time_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start Date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addSubjectSelectEndTImeButton" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_main_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addSubjectSelectDateButton">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/mondayChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/monday" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/tuesdayChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tuesday" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/wednesdayChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wednesday" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/thursdayChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/thursday" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/fridayChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/friday" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/saturdayChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/saturday" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/sundayChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sunday" />
+            <!-- Chips can be declared here, or added dynamically. -->
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <com.google.android.material.button.MaterialButton
+
+            android:id="@+id/addSubjectSelectDateButton"
+            style="@style/time_select_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_main_margin"
+            android:layout_marginTop="@dimen/activity_main_margin"
+            android:layout_marginRight="@dimen/margin_small"
+            android:text="SELECT"
+            app:icon="@drawable/ic_baseline_calendar_today_24"
+            app:layout_constraintEnd_toStartOf="@+id/addSubjectSelectDateTextView"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <TextView
+            android:id="@+id/addSubjectSelectDateTextView"
+            style="@style/start_end_time_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_small"
+            app:layout_constraintBottom_toBottomOf="@+id/addSubjectSelectDateButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/addSubjectSelectDateButton"
+            app:layout_constraintTop_toTopOf="@+id/addSubjectSelectDateButton" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button4"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_main_margin"
+            android:fontFamily="@font/open_sans"
+            android:text="@string/save"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/chipGroup"
+            app:layout_constraintTop_toBottomOf="@+id/chipGroup" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
