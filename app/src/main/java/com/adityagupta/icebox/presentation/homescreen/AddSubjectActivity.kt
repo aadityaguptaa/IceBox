@@ -2,20 +2,34 @@ package com.adityagupta.icebox.presentation.homescreen
 
 import android.os.Bundle
 import android.text.format.DateFormat.is24HourFormat
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.adityagupta.icebox.data.database.Subject
 import com.adityagupta.icebox.databinding.ActivityAddSubjectBinding
+import com.adityagupta.icebox.domain.database.AppDatabase
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
+import dagger.hilt.EntryPoint
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
+import javax.inject.Inject
+import javax.inject.Named
 
+@AndroidEntryPoint
 class AddSubjectActivity : AppCompatActivity() {
 
     lateinit var startTimePicker: MaterialTimePicker
     lateinit var endTimePicker: MaterialTimePicker
 
     lateinit var binding: ActivityAddSubjectBinding
+
+    @Inject
+    @Named("room")
+    lateinit var database: AppDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +38,23 @@ class AddSubjectActivity : AppCompatActivity() {
 
         setStartEndTimePicker()
         setDatePicker()
+        setInsertSubjectListener()
+
+    }
+
+    private fun setInsertSubjectListener() {
+        binding.addSubjectSaveButton.setOnClickListener {
+            insertSubject()
+        }
+    }
+
+    private fun insertSubject() {
+        val subjectName = binding.addSubjectNameEditText.text.toString()
+        val tempSubject: Subject = Subject(null, subjectName = subjectName)
+
+        lifecycleScope.launch {
+            database.dao().addSubject(tempSubject)
+        }
 
     }
 
