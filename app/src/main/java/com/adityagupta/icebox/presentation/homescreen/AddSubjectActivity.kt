@@ -1,5 +1,6 @@
 package com.adityagupta.icebox.presentation.homescreen
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.format.DateFormat.is24HourFormat
 import android.util.Log
@@ -54,7 +55,10 @@ class AddSubjectActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             database.dao().addSubject(tempSubject)
+            startActivity(Intent(applicationContext, HomeScreenActivity::class.java))
+
         }
+
 
     }
 
