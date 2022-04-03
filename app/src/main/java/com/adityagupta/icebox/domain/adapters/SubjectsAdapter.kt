@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.adityagupta.icebox.data.database.Subject
 import com.adityagupta.icebox.databinding.SubjectItemLayoutBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.text.SimpleDateFormat
 
 class SubjectsAdapter(val context: Context): RecyclerView.Adapter<SubjectsAdapter.MyViewHolder>() {
@@ -19,6 +20,24 @@ class SubjectsAdapter(val context: Context): RecyclerView.Adapter<SubjectsAdapte
     inner class MyViewHolder(val binding: SubjectItemLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
+            init {
+                binding.deleteSubjectIcon.setOnClickListener {
+                    createDeleteDialog()
+                }
+            }
+
+        private fun createDeleteDialog() {
+            MaterialAlertDialogBuilder(context)
+                .setTitle("Delete Subject")
+                .setMessage("All the data related to this subject will be lost forever. Do you still want to continue?")
+                .setPositiveButton("No") { dialog, which ->
+                    // Respond to neutral button press
+                }
+                .setNegativeButton("Yes") { dialog, which ->
+                    // Respond to negative button press
+                }
+                .show()
+        }
     }
 
     private val diffCallback = object : DiffUtil.ItemCallback<Subject>() {

@@ -34,7 +34,7 @@ class HomeScreenActivity : AppCompatActivity() {
             binding.homeScreenSubjectsRecyclerView.adapter = adapter
         }
 
-        binding.homeScreenAddSubjectCardView.setOnClickListener {
+        binding.homeScreenAddSubjectImageView.setOnClickListener {
             startActivity(Intent(this, AddSubjectActivity::class.java))
         }
     }
