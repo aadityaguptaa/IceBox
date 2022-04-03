@@ -13,7 +13,7 @@
         tools:context=".presentation.homescreen.AddSubjectActivity">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/outlinedTextField"
+            android:id="@+id/addSubjectNameTextField"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -25,6 +25,7 @@
             app:startIconDrawable="@drawable/ic_baseline_drive_file_rename_outline_24">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/addSubjectNameEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -37,7 +38,7 @@
             android:text="@string/start_time"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/outlinedTextField" />
+            app:layout_constraintTop_toBottomOf="@+id/addSubjectNameTextField" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/addSubjectStartTimeEditText"
@@ -209,7 +210,7 @@
             app:layout_constraintTop_toTopOf="@+id/addSubjectSelectDateButton" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button4"
+            android:id="@+id/addSubjectSaveButton"
             style="@style/Widget.Material3.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

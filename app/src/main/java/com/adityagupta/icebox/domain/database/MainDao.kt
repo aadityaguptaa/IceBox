@@ -10,10 +10,10 @@ import com.adityagupta.icebox.data.database.Subject
 interface MainDao {
 
     @Query("Select * from Subject")
-    fun getSubjects(): List<Subject>
+    suspend fun getSubjects(): List<Subject>
 
     @Insert
-    fun addSubject(subject: Subject)
+    suspend fun addSubject(subject: Subject)
 
     @Delete
     fun deleteSubject(subject: Subject)
