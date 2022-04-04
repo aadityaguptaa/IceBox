@@ -1,22 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="200dp">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.Material3.CardView.Elevated"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="200dp"
+        android:layout_margin="16dp"
+        android:clickable="true">
 
-        <TextView
-            android:id="@+id/subjectName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
-            android:text="TextView"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</com.google.android.material.card.MaterialCardView>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/subjectName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/apercu_pro_regular"
+                android:text="TextView"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/itemViewSubjectStartTime"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/itemViewSubjectEndTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/apercu_pro_regular"
+                android:padding="8dp"
+                android:text="End Time:  09:00 am"
+                app:layout_constraintStart_toStartOf="@+id/itemViewSubjectStartTime"
+                app:layout_constraintTop_toBottomOf="@+id/itemViewSubjectStartTime" />
+
+            <TextView
+                android:id="@+id/itemViewSubjectStartTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/apercu_pro_regular"
+                android:padding="8dp"
+                android:text="Start Time: 08:00 am"
+                app:layout_constraintBottom_toTopOf="@+id/itemViewSubjectEndTime"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/subjectName" />
+
+            <HorizontalScrollView
+                android:id="@+id/chipGroupScrollView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/deleteSubjectIcon"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:singleLine="true"
+                    android:foregroundGravity="center_horizontal"
+                    >
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/mondayChip"
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+                        android:autoSizeTextType="none"
+                        android:fontFamily="@font/apercu_pro_regular"
+                        android:text="M"
+                         />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/tuesdayChip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+                        android:fontFamily="@font/apercu_pro_regular"
+
+                        android:text="T"
+                         />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/wednesdayChip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+                        android:fontFamily="@font/apercu_pro_regular"
+
+                        android:text="W"
+                         />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/thursdayChip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+
+                        android:fontFamily="@font/apercu_pro_regular"
+                        android:text="T"
+                         />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/fridayChip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+
+                        android:fontFamily="@font/apercu_pro_regular"
+                        android:text="F"
+                         />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/saturdayChip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+                        android:fontFamily="@font/apercu_pro_regular"
+
+                        android:text="S"
+                         />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/sundayChip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+                        android:fontFamily="@font/apercu_pro_regular"
+
+                        android:text="S"
+                        />
+                    <!-- Chips can be declared here, or added dynamically. -->
+
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
+
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/itemViewSubjectStartChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/apercu_pro_regular"
+                android:text="22/04/22"
+                app:chipIcon="@drawable/ic_baseline_calendar_today_24"
+                app:ensureMinTouchTargetSize="true"
+                app:layout_constraintBottom_toTopOf="@+id/chipGroupScrollView"
+                app:layout_constraintStart_toStartOf="@+id/subjectName"
+                app:layout_constraintTop_toBottomOf="@+id/subjectName" />
+
+            <ImageView
+                android:id="@+id/deleteSubjectIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                app:layout_constraintBottom_toBottomOf="@+id/chipGroupScrollView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/chipGroupScrollView"
+                app:srcCompat="@drawable/ic_baseline_delete_forever_24" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,5 +1,6 @@
 package com.adityagupta.icebox.presentation.homescreen
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.format.DateFormat.is24HourFormat
 import android.util.Log
@@ -24,7 +25,9 @@ class AddSubjectActivity : AppCompatActivity() {
 
     lateinit var startTimePicker: MaterialTimePicker
     lateinit var endTimePicker: MaterialTimePicker
-
+    var startTime = ""
+    var endTime = ""
+    var startDate: Long = 0
     lateinit var binding: ActivityAddSubjectBinding
 
     @Inject
@@ -44,17 +47,28 @@ class AddSubjectActivity : AppCompatActivity() {
 
     private fun setInsertSubjectListener() {
         binding.addSubjectSaveButton.setOnClickListener {
-            insertSubject()
+            if(checkFields()){
+                insertSubject()
+            }else{
+                // TODO
+            }
         }
+    }
+
+    private fun checkFields(): Boolean {
+        return !(startTime.isEmpty() || endTime.isEmpty() || startDate.equals(0))
     }
 
     private fun insertSubject() {
         val subjectName = binding.addSubjectNameEditText.text.toString()
-        val tempSubject: Subject = Subject(null, subjectName = subjectName)
+        val tempSubject: Subject = Subject(null, subjectName = subjectName, startTime, endTime, startDate)
 
         lifecycleScope.launch {
             database.dao().addSubject(tempSubject)
+            startActivity(Intent(applicationContext, HomeScreenActivity::class.java))
+
         }
+
 
     }
 
@@ -67,6 +81,7 @@ class AddSubjectActivity : AppCompatActivity() {
         binding.addSubjectSelectDateButton.setOnClickListener {
             picker.show(supportFragmentManager, "date")
             picker.addOnPositiveButtonClickListener {
+                startDate = it
                 val dateString: String =
                     SimpleDateFormat("dd/MM/yyyy").format(Date(it))
 
@@ -119,9 +134,11 @@ class AddSubjectActivity : AppCompatActivity() {
 
         picker.addOnPositiveButtonClickListener {
             if(tag == "start"){
-                binding.addSubjectStartTimeEditText.editText?.setText("${picker.hour}:${picker.minute}")
+                startTime = "${picker.hour}:${picker.minute}"
+                binding.addSubjectStartTimeEditText.editText?.setText(startTime)
             }else{
-                binding.addSubjectEndTimeEditText.editText?.setText("${picker.hour}:${picker.minute}")
+                endTime = "${picker.hour}:${picker.minute}"
+                binding.addSubjectEndTimeEditText.editText?.setText(endTime)
             }
             // call back code
         }
