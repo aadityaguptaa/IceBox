@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.text.format.DateFormat.is24HourFormat
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -12,6 +13,7 @@ import com.adityagupta.icebox.data.database.Subject
 import com.adityagupta.icebox.databinding.SubjectItemLayoutBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.text.SimpleDateFormat
+import java.util.*
 
 class SubjectsAdapter(val context: Context): RecyclerView.Adapter<SubjectsAdapter.MyViewHolder>() {
 
@@ -72,6 +74,9 @@ class SubjectsAdapter(val context: Context): RecyclerView.Adapter<SubjectsAdapte
         holder.binding.apply {
             val subject = subjects[position]
             subjectName.text = subject.subjectName
+            itemViewSubjectStartTime.text = "Start Time: ${subject.startingTime}"
+            itemViewSubjectEndTime.text ="End Time: ${subject.endingTime}"
+            itemViewSubjectStartChip.text = SimpleDateFormat("dd/MM/yyyy").format(Date(subject.startingDate!!))
         }
 
     }
