@@ -65,88 +65,97 @@
                 app:layout_constraintStart_toStartOf="parent">
 
                 <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/chipGroup"
+                    android:id="@+id/silChipGroup"
+                    style="@style/CustomChipStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:singleLine="true"
+                    android:clickable="false"
                     android:foregroundGravity="center_horizontal"
                     >
 
                     <com.google.android.material.chip.Chip
-                        android:id="@+id/mondayChip"
+                        android:id="@+id/silMondayChip"
                         android:layout_width="wrap_content"
-
+                        style="@style/CustomChipStyle"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
                         android:autoSizeTextType="none"
+                        android:clickable="false"
                         android:fontFamily="@font/apercu_pro_regular"
                         android:text="M"
                          />
 
                     <com.google.android.material.chip.Chip
-                        android:id="@+id/tuesdayChip"
+                        android:id="@+id/silTuesdayChip"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        style="@style/CustomChipStyle"
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
                         android:fontFamily="@font/apercu_pro_regular"
-
+                        android:clickable="false"
                         android:text="T"
                          />
 
                     <com.google.android.material.chip.Chip
-                        android:id="@+id/wednesdayChip"
+                        android:id="@+id/silWednesdayChip"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        style="@style/CustomChipStyle"
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
                         android:fontFamily="@font/apercu_pro_regular"
-
+                        android:clickable="false"
                         android:text="W"
                          />
 
                     <com.google.android.material.chip.Chip
-                        android:id="@+id/thursdayChip"
+                        android:id="@+id/silThursdayChip"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        style="@style/CustomChipStyle"
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
-
+                        android:clickable="false"
                         android:fontFamily="@font/apercu_pro_regular"
                         android:text="T"
                          />
 
                     <com.google.android.material.chip.Chip
-                        android:id="@+id/fridayChip"
+                        android:id="@+id/silFridayChip"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        style="@style/CustomChipStyle"
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
-
+                        android:clickable="false"
                         android:fontFamily="@font/apercu_pro_regular"
                         android:text="F"
                          />
 
                     <com.google.android.material.chip.Chip
-                        android:id="@+id/saturdayChip"
+                        android:id="@+id/silSaturdayChip"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:clickable="false"
+                        style="@style/CustomChipStyle"
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
                         android:fontFamily="@font/apercu_pro_regular"
-
                         android:text="S"
                          />
 
                     <com.google.android.material.chip.Chip
-                        android:id="@+id/sundayChip"
+                        android:id="@+id/silSundayChip"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:clickable="false"
+                        style="@style/CustomChipStyle"
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
                         android:fontFamily="@font/apercu_pro_regular"
-
                         android:text="S"
                         />
                     <!-- Chips can be declared here, or added dynamically. -->

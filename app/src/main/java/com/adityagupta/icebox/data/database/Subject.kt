@@ -11,5 +11,5 @@ data class Subject (
     @ColumnInfo(name = "startingTime") val startingTime: String,
     @ColumnInfo(name = "endingTime") val endingTime: String,
     @ColumnInfo(name = "startingDate") val startingDate: Long,
-/*    @ColumnInfo(name = "weekDays") val weekDays: List<Int>*/
+   @ColumnInfo(name = "weekDays") val weekDays: String
 )
