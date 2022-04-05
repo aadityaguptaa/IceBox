@@ -77,6 +77,18 @@ class SubjectsAdapter(val context: Context): RecyclerView.Adapter<SubjectsAdapte
             itemViewSubjectStartTime.text = "Start Time: ${subject.startingTime}"
             itemViewSubjectEndTime.text ="End Time: ${subject.endingTime}"
             itemViewSubjectStartChip.text = SimpleDateFormat("dd/MM/yyyy").format(Date(subject.startingDate!!))
+            val selectedDays = subject.weekDays.split(",")
+            for( i in selectedDays){
+                when(i.toInt()){
+                    0 ->  silMondayChip.isChecked = true
+                    1 ->  silTuesdayChip.isChecked = true
+                    2 ->  silWednesdayChip.isChecked = true
+                    3 ->  silThursdayChip.isChecked = true
+                    4 ->  silFridayChip.isChecked = true
+                    5 ->  silSaturdayChip.isChecked = true
+                    6 ->  silSundayChip.isChecked = true
+                }
+            }
         }
 
     }

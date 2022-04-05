@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import com.adityagupta.icebox.data.database.Subject
 import com.adityagupta.icebox.databinding.ActivityAddSubjectBinding
 import com.adityagupta.icebox.domain.database.AppDatabase
+import com.google.android.material.chip.Chip
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
@@ -25,6 +26,7 @@ class AddSubjectActivity : AppCompatActivity() {
 
     lateinit var startTimePicker: MaterialTimePicker
     lateinit var endTimePicker: MaterialTimePicker
+    val weekDays: List<String> =  listOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
     var startTime = ""
     var endTime = ""
     var startDate: Long = 0
@@ -42,6 +44,7 @@ class AddSubjectActivity : AppCompatActivity() {
         setStartEndTimePicker()
         setDatePicker()
         setInsertSubjectListener()
+
 
     }
 
@@ -61,7 +64,9 @@ class AddSubjectActivity : AppCompatActivity() {
 
     private fun insertSubject() {
         val subjectName = binding.addSubjectNameEditText.text.toString()
-        val tempSubject: Subject = Subject(null, subjectName = subjectName, startTime, endTime, startDate)
+
+        val selectedDays = getSelectedDays()
+        val tempSubject: Subject = Subject(null, subjectName = subjectName, startTime, endTime, startDate, selectedDays)
 
         lifecycleScope.launch {
             database.dao().addSubject(tempSubject)
@@ -70,6 +75,16 @@ class AddSubjectActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    private fun getSelectedDays(): String {
+        val ids = binding.chipGroup.checkedChipIds
+        val selectedDays: MutableList<Int> = mutableListOf()
+        for( i in ids){
+            val chip : Chip = binding.chipGroup.findViewById(i)
+            selectedDays.add(weekDays.indexOf(chip.text))
+        }
+        return selectedDays.joinToString(separator = ",")
     }
 
     private fun setDatePicker() {

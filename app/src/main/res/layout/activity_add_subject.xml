@@ -138,42 +138,42 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/mondayChip"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
+                style="@style/CustomChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/monday" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/tuesdayChip"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
+                style="@style/CustomChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tuesday" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/wednesdayChip"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
+                style="@style/CustomChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/wednesday" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/thursdayChip"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
+                style="@style/CustomChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/thursday" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/fridayChip"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
+                style="@style/CustomChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/friday" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/saturdayChip"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
+                style="@style/CustomChipStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/saturday" />
@@ -181,7 +181,7 @@
             <com.google.android.material.chip.Chip
                 android:id="@+id/sundayChip"
                 android:layout_width="wrap_content"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
+                style="@style/CustomChipStyle"
                 android:layout_height="wrap_content"
                 android:text="@string/sunday" />
             <!-- Chips can be declared here, or added dynamically. -->
